@@ -1,0 +1,135 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "74b0f2f0-948a-4f1d-a92c-676d227b6970": {
+        "id": "74b0f2f0-948a-4f1d-a92c-676d227b6970",
+        "parent": null,
+        "name": "new",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "ef658f6e-fe33-4128-bc2a-205b1d210785",
+          "a4712200-4d09-46aa-a5c4-adbae6d3a231"
+        ],
+        "isRemovable": false,
+        "filePath": "new"
+      },
+      "ef658f6e-fe33-4128-bc2a-205b1d210785": {
+        "id": "ef658f6e-fe33-4128-bc2a-205b1d210785",
+        "parent": "74b0f2f0-948a-4f1d-a92c-676d227b6970",
+        "name": "lambda.js",
+        "type": "LAMBDA_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "new/lambda.js",
+        "code": "let SL_AWS = require('slappforge-sdk-aws');\nlet connectionManager = require('./ConnectionManager');\nconst rds = new SL_AWS.RDS(connectionManager);\n\nexports.handler = function (event, context, callback) {\n\n    // You must always end/destroy the DB connection after it's used\n    rds.beginTransaction({\n        instanceIdentifier: 'Test'\n    }, function (error, connection) {\n        if (error) {\n            throw error;\n        }\n        connection.end();\n    });\n\n\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "triggers": [],
+        "config": {
+          "runtime": "nodejs8.10",
+          "timeout": 60,
+          "memory": 128
+        }
+      },
+      "a4712200-4d09-46aa-a5c4-adbae6d3a231": {
+        "id": "a4712200-4d09-46aa-a5c4-adbae6d3a231",
+        "parent": "74b0f2f0-948a-4f1d-a92c-676d227b6970",
+        "name": "ConnectionManager.js",
+        "type": "JS_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "new/ConnectionManager.js",
+        "code": "module.exports = function() {\n    this.dbConnections = [];\n\n    this.dbConnections[\"Test\"] = {\n        host: process.env.EndPoint_rdsTest,\n        port: process.env.Port_rdsTest,\n        user: process.env.User_rdsTest,\n        password: process.env.Password_rdsTest,\n        database: \"Test\"\n    };\n};",
+        "triggers": []
+      }
+    },
+    "deletedFiles": [],
+    "rootNode": "74b0f2f0-948a-4f1d-a92c-676d227b6970",
+    "openFiles": [
+      "ef658f6e-fe33-4128-bc2a-205b1d210785"
+    ],
+    "currentFileId": "ef658f6e-fe33-4128-bc2a-205b1d210785",
+    "resources": {
+      "rds-Test": {
+        "name": "rds-Test",
+        "type": "RDS",
+        "config": {
+          "editMode": false,
+          "operation": 1,
+          "rdsInstance": {
+            "rdsEngineType": "mysql",
+            "rdsEdition": "",
+            "rdsInstanceSpec": {
+              "dbInstanceClass": "db.t2.micro",
+              "dbLicenseModel": "general-public-license",
+              "dbEngineVersion": "5.7.19"
+            },
+            "rdsSetting": {
+              "instanceIdentifier": "Test",
+              "masterUsername": "Test",
+              "masterPassword": "Test#123"
+            },
+            "rdsDBOptions": {
+              "dbName": "Test",
+              "dbPort": "1932"
+            },
+            "rdsInstanceArn": "",
+            "Host": "",
+            "doesExist": false,
+            "initializationQuery": "SHOW DATABASES;",
+            "alreadyDeployed": false
+          },
+          "rdsInstanceResources": [],
+          "projectRegion": "us-east-1",
+          "mode": 0,
+          "additionalFiles": [],
+          "params": {
+            "query": "",
+            "inserts": ""
+          },
+          "isGlobalEditMode": false,
+          "enableInject": true,
+          "isNewFromGlobal": false
+        },
+        "globallyEditable": true
+      }
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {
+        "slappforge-sdk-aws": {
+          "name": "slappforge-sdk-aws",
+          "version": "0.0.5",
+          "notRemovable": false
+        }
+      }
+    },
+    "lambdaId": "ef658f6e-fe33-4128-bc2a-205b1d210785"
+  },
+  "PROJECT_META": {
+    "projectName": "new",
+    "projectDescription": "",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "platformRegions": {},
+    "lastSave": 1548138114210
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "new",
+      "url": "https://github.com/Kumudikatest/new"
+    }
+  }
+}
