@@ -23,7 +23,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "new/lambda.js",
-        "code": "let SL_AWS = require('slappforge-sdk-aws');\nlet connectionManager = require('./ConnectionManager');\nconst rds = new SL_AWS.RDS(connectionManager);\n\nexports.handler = function (event, context, callback) {\n\n    // You must always end/destroy the DB connection after it's used\n    rds.beginTransaction({\n        instanceIdentifier: 'Test'\n    }, function (error, connection) {\n        if (error) {\n            throw error;\n        }\n        connection.end();\n    });\n\n\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "code": "let SL_AWS = require('slappforge-sdk-aws');\nlet connectionManager = require('./ConnectionManager');\nconst rds = new SL_AWS.RDS(connectionManager);\n\nexports.handler = function (event, context, callback) {\n\n    // You must always end/destroy the DB connection after it's used\n    rds.beginTransaction({\n        instanceIdentifier: 'Test1'\n    }, function (error, connection) {\n        if (error) {\n            throw error;\n        }\n        connection.end();\n    });\n\n\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
         "triggers": [],
         "config": {
           "runtime": "nodejs8.10",
@@ -56,7 +56,6 @@
         "type": "RDS",
         "config": {
           "editMode": false,
-          "operation": 1,
           "rdsInstance": {
             "rdsEngineType": "mysql",
             "rdsEdition": "",
@@ -67,11 +66,11 @@
             },
             "rdsSetting": {
               "instanceIdentifier": "Test",
-              "masterUsername": "Test",
+              "masterUsername": "Test1",
               "masterPassword": "Test#123"
             },
             "rdsDBOptions": {
-              "dbName": "Test",
+              "dbName": "Test1",
               "dbPort": "1932"
             },
             "rdsInstanceArn": "",
@@ -80,15 +79,72 @@
             "initializationQuery": "SHOW DATABASES;",
             "alreadyDeployed": false
           },
-          "rdsInstanceResources": [],
-          "projectRegion": "us-east-1",
-          "mode": 0,
-          "additionalFiles": [],
+          "isGlobalEditMode": true,
           "params": {
             "query": "",
             "inserts": ""
           },
-          "isGlobalEditMode": false,
+          "mode": 0,
+          "projectRegion": "us-east-1",
+          "rdsInstanceResources": [
+            {
+              "name": "rds-Test",
+              "type": "RDS",
+              "config": {
+                "editMode": false,
+                "operation": 1,
+                "rdsInstance": {
+                  "rdsEngineType": "mysql",
+                  "rdsEdition": "",
+                  "rdsInstanceSpec": {
+                    "dbInstanceClass": "db.t2.micro",
+                    "dbLicenseModel": "general-public-license",
+                    "dbEngineVersion": "5.7.19"
+                  },
+                  "rdsSetting": {
+                    "instanceIdentifier": "Test",
+                    "masterUsername": "Test",
+                    "masterPassword": "Test#123"
+                  },
+                  "rdsDBOptions": {
+                    "dbName": "Test",
+                    "dbPort": "1932"
+                  },
+                  "rdsInstanceArn": "",
+                  "Host": "",
+                  "doesExist": false,
+                  "initializationQuery": "SHOW DATABASES;",
+                  "alreadyDeployed": false
+                },
+                "rdsInstanceResources": [],
+                "projectRegion": "us-east-1",
+                "mode": 0,
+                "additionalFiles": [],
+                "params": {
+                  "query": "",
+                  "inserts": ""
+                },
+                "isGlobalEditMode": false,
+                "enableInject": true,
+                "isNewFromGlobal": false
+              },
+              "globallyEditable": true,
+              "usage": {
+                "ef658f6e-fe33-4128-bc2a-205b1d210785": {
+                  "operations": {
+                    "beginTransaction": [
+                      {
+                        "instanceIdentifier": "Test"
+                      }
+                    ]
+                  },
+                  "occurrence": 1,
+                  "triggers": []
+                }
+              }
+            }
+          ],
+          "additionalFiles": [],
           "enableInject": true,
           "isNewFromGlobal": false
         },
@@ -123,7 +179,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1548138114210
+    "lastSave": 1548138266059
   },
   "VCS_STATE": {
     "provider": "GitHub",
