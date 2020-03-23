@@ -1,154 +1,80 @@
 {
   "EDITOR_STATE": {
     "allProjectFiles": {
-      "74b0f2f0-948a-4f1d-a92c-676d227b6970": {
-        "id": "74b0f2f0-948a-4f1d-a92c-676d227b6970",
+      "1f013c47-4b3f-4a8f-a990-fb62c4591cd0": {
+        "id": "1f013c47-4b3f-4a8f-a990-fb62c4591cd0",
         "parent": null,
-        "name": "new",
-        "type": "DIRECTORY",
-        "isDirectory": true,
-        "children": [
-          "ef658f6e-fe33-4128-bc2a-205b1d210785",
-          "a4712200-4d09-46aa-a5c4-adbae6d3a231"
-        ],
-        "isRemovable": false,
-        "filePath": "new"
-      },
-      "ef658f6e-fe33-4128-bc2a-205b1d210785": {
-        "id": "ef658f6e-fe33-4128-bc2a-205b1d210785",
-        "parent": "74b0f2f0-948a-4f1d-a92c-676d227b6970",
-        "name": "lambda.js",
-        "type": "LAMBDA_FILE",
+        "name": "New.js",
+        "type": "JS_LAMBDA",
         "isDirectory": false,
         "children": [],
         "isRemovable": true,
-        "filePath": "new/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst cognito_idp = new AWS.CognitoIdentityServiceProvider();\nlet SL_AWS = require('slappforge-sdk-aws');\nlet connectionManager = require('./ConnectionManager');\nconst rds = new SL_AWS.RDS(connectionManager);\n\nexports.handler = function (event, context, callback) {\n    cognito_idp.listUsers({\n        UserPoolId: \"us-east-1_uVXTQInep\",\n        Limit: \"10\"\n    }, function (error, data) {\n        if (error) {\n            // implement error handling logic here\n            throw error;\n            console.log(error);\n        }\n        // your logic goes within this block\n    });\n\n    cognito_idp.listUsers({\n        UserPoolId: \"us-east-1_uVXTQInep\",\n        Limit: \"10\"\n    }, function (error, data) {\n        if (error) {\n            // implement error handling logic here\n            throw error;\n            console.log(error);\n        }\n        // your logic goes within this block\n    });\n\n\n    // You must always end/destroy the DB connection after it's used\n    rds.beginTransaction({\n        instanceIdentifier: 'Test1'\n    }, function (error, connection) {\n        if (error) {\n            throw error;\n        }\n        connection.end();\n    });\n\n\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
-        "triggers": [],
+        "filePath": "New.js",
+        "cursor": {
+          "lineNumber": 1,
+          "column": 1
+        },
         "config": {
-          "runtime": "nodejs8.10",
+          "runtime": "nodejs10.x",
+          "handler": "handler",
           "timeout": 60,
-          "memory": 128
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [
+          {
+            "resourceName": "apigusEast1TestAPIMyLambdaput",
+            "config": {}
+          }
+        ],
+        "testCases": {
+          "923bce3c-e404-4464-83a4-9a83925f4a17": {
+            "id": "923bce3c-e404-4464-83a4-9a83925f4a17",
+            "name": "Test event",
+            "functionId": "1f013c47-4b3f-4a8f-a990-fb62c4591cd0",
+            "event": "{\r\n    \"key1\": \"value1\",\r\n    \"key2\": \"value2\",\r\n    \"key3\": \"value3\"\r\n}",
+            "eventTemplate": "hello-world"
+          }
         }
-      },
-      "a4712200-4d09-46aa-a5c4-adbae6d3a231": {
-        "id": "a4712200-4d09-46aa-a5c4-adbae6d3a231",
-        "parent": "74b0f2f0-948a-4f1d-a92c-676d227b6970",
-        "name": "ConnectionManager.js",
-        "type": "JS_FILE",
-        "isDirectory": false,
-        "children": [],
-        "isRemovable": true,
-        "filePath": "new/ConnectionManager.js",
-        "code": "module.exports = function() {\n    this.dbConnections = [];\n\n    this.dbConnections[\"Test\"] = {\n        host: process.env.EndPoint_rdsTest,\n        port: process.env.Port_rdsTest,\n        user: process.env.User_rdsTest,\n        password: process.env.Password_rdsTest,\n        database: \"Test\"\n    };\n};",
-        "triggers": []
       }
     },
-    "deletedFiles": [],
-    "rootNode": "74b0f2f0-948a-4f1d-a92c-676d227b6970",
     "openFiles": [
-      "ef658f6e-fe33-4128-bc2a-205b1d210785"
+      "1f013c47-4b3f-4a8f-a990-fb62c4591cd0"
     ],
-    "currentFileId": "ef658f6e-fe33-4128-bc2a-205b1d210785",
+    "currentFileId": "1f013c47-4b3f-4a8f-a990-fb62c4591cd0",
     "resources": {
-      "rds-Test": {
-        "name": "rds-Test",
-        "type": "RDS",
+      "apigusEast1TestAPIMyLambdaput": {
+        "name": "apigusEast1TestAPIMyLambdaput",
+        "type": "API_GATEWAY",
         "config": {
-          "editMode": false,
-          "rdsInstance": {
-            "rdsEngineType": "mysql",
-            "rdsEdition": "",
-            "rdsInstanceSpec": {
-              "dbInstanceClass": "db.t2.micro",
-              "dbLicenseModel": "general-public-license",
-              "dbEngineVersion": "5.7.19"
-            },
-            "rdsSetting": {
-              "instanceIdentifier": "Test",
-              "masterUsername": "Test1",
-              "masterPassword": "Test#123"
-            },
-            "rdsDBOptions": {
-              "dbName": "Test1",
-              "dbPort": "1932"
-            },
-            "rdsInstanceArn": "",
-            "Host": "",
-            "doesExist": false,
-            "initializationQuery": "SHOW DATABASES;",
-            "alreadyDeployed": false
+          "selectedRegion": "us-east-1",
+          "apiMode": 1,
+          "apiName": "TestAPI",
+          "apiId": "0itznun7w3",
+          "endpointType": "EDGE",
+          "rootResourceId": "h2lelj6j7k",
+          "existingResources": {
+            "/MyLambda": "98nqbj",
+            "/testdbput": "bu1jy0",
+            "/": "h2lelj6j7k",
+            "/newchange/test": "k6pdhn",
+            "/newchange": "q1ox7l",
+            "/testWithSlash": "q4m4g1",
+            "/testtwospeciallambda": "q4szm3",
+            "/testtwospecialkumutest": "wey3lk"
           },
-          "isGlobalEditMode": true,
-          "params": {
-            "query": "",
-            "inserts": ""
-          },
-          "mode": 0,
-          "projectRegion": "us-east-1",
-          "rdsInstanceResources": [
-            {
-              "name": "rds-Test",
-              "type": "RDS",
-              "config": {
-                "editMode": false,
-                "operation": 1,
-                "rdsInstance": {
-                  "rdsEngineType": "mysql",
-                  "rdsEdition": "",
-                  "rdsInstanceSpec": {
-                    "dbInstanceClass": "db.t2.micro",
-                    "dbLicenseModel": "general-public-license",
-                    "dbEngineVersion": "5.7.19"
-                  },
-                  "rdsSetting": {
-                    "instanceIdentifier": "Test",
-                    "masterUsername": "Test",
-                    "masterPassword": "Test#123"
-                  },
-                  "rdsDBOptions": {
-                    "dbName": "Test",
-                    "dbPort": "1932"
-                  },
-                  "rdsInstanceArn": "",
-                  "Host": "",
-                  "doesExist": false,
-                  "initializationQuery": "SHOW DATABASES;",
-                  "alreadyDeployed": false
-                },
-                "rdsInstanceResources": [],
-                "projectRegion": "us-east-1",
-                "mode": 0,
-                "additionalFiles": [],
-                "params": {
-                  "query": "",
-                  "inserts": ""
-                },
-                "isGlobalEditMode": false,
-                "enableInject": true,
-                "isNewFromGlobal": false
-              },
-              "globallyEditable": true,
-              "usage": {
-                "ef658f6e-fe33-4128-bc2a-205b1d210785": {
-                  "operations": {
-                    "beginTransaction": [
-                      {
-                        "instanceIdentifier": "Test"
-                      }
-                    ]
-                  },
-                  "occurrence": 1,
-                  "triggers": []
-                }
-              }
-            }
-          ],
-          "additionalFiles": [],
-          "enableInject": true,
-          "isNewFromGlobal": false
-        },
-        "globallyEditable": true
+          "resourceMode": 1,
+          "resourcePath": "/MyLambda",
+          "resourceName": "MyLambda",
+          "resourceId": "98nqbj",
+          "restMethod": "PUT",
+          "proxyIntegration": false,
+          "enableCORS": false,
+          "stageMode": 1,
+          "stageName": "test",
+          "stageDeploymentId": "50alcr",
+          "mode": 1
+        }
       },
       "cognitoTestCognito": {
         "name": "cognitoTestCognito",
@@ -156,9 +82,9 @@
         "config": {
           "mode": 1,
           "name": "Test Cognito",
-          "arn": "arn:aws:cognito-idp:us-east-1:318300609668:userpool/us-east-1_uVXTQInep",
+          "arn": "arn:aws:cognito-idp:us-east-1:318300609668:userpool/us-east-1_HdYJb7Znp",
           "userPool": {
-            "Id": "us-east-1_uVXTQInep",
+            "Id": "us-east-1_HdYJb7Znp",
             "Name": "Test Cognito",
             "LambdaConfig": {},
             "Policies": {
@@ -170,40 +96,19 @@
                 "RequireSymbols": true
               }
             },
-            "UsernameAttributes": [
-              "email"
-            ],
-            "SmsVerificationMessage": "Your verification code is {####}. ",
-            "EmailVerificationMessage": "Your verification code is {####}. ",
-            "EmailVerificationSubject": "Your verification code",
             "VerificationMessageTemplate": {
-              "SmsMessage": "Your verification code is {####}. ",
-              "EmailMessage": "Your verification code is {####}. ",
-              "EmailSubject": "Your verification code",
               "DefaultEmailOption": "CONFIRM_WITH_CODE"
             },
-            "SmsAuthenticationMessage": "Your authentication code is {####}. ",
-            "MfaConfiguration": "OPTIONAL",
-            "DeviceConfiguration": {
-              "ChallengeRequiredOnNewDevice": false,
-              "DeviceOnlyRememberedOnUserPrompt": true
-            },
+            "MfaConfiguration": "OFF",
             "EmailConfiguration": {},
             "SmsConfiguration": {
               "SnsCallerArn": "arn:aws:iam::318300609668:role/service-role/TestCognito-SMS-Role",
               "ExternalId": "a5aa9c3d-325f-4d4c-bd3e-06f1485e8375"
             },
-            "UserPoolTags": {
-              "status": "1"
-            },
+            "UserPoolTags": {},
             "AdminCreateUserConfig": {
               "AllowAdminCreateUserOnly": false,
-              "UnusedAccountValidityDays": 7,
-              "InviteMessageTemplate": {
-                "SMSMessage": "Your username is {username} and temporary password is {####}. ",
-                "EmailMessage": "Your username is {username} and temporary password is {####}. ",
-                "EmailSubject": "Your temporary password"
-              }
+              "UnusedAccountValidityDays": 7
             },
             "SchemaAttributes": [
               {
@@ -222,7 +127,7 @@
                 "AttributeDataType": "String",
                 "DeveloperOnlyAttribute": false,
                 "Mutable": true,
-                "Required": true,
+                "Required": false,
                 "StringAttributeConstraints": {
                   "MinLength": "0",
                   "MaxLength": "2048"
@@ -321,7 +226,7 @@
                 "AttributeDataType": "String",
                 "DeveloperOnlyAttribute": false,
                 "Mutable": true,
-                "Required": true,
+                "Required": false,
                 "StringAttributeConstraints": {
                   "MinLength": "0",
                   "MaxLength": "2048"
@@ -350,7 +255,7 @@
                 "AttributeDataType": "String",
                 "DeveloperOnlyAttribute": false,
                 "Mutable": true,
-                "Required": true,
+                "Required": false,
                 "StringAttributeConstraints": {
                   "MinLength": "10",
                   "MaxLength": "10"
@@ -383,7 +288,7 @@
                 "AttributeDataType": "String",
                 "DeveloperOnlyAttribute": false,
                 "Mutable": true,
-                "Required": true,
+                "Required": false,
                 "StringAttributeConstraints": {
                   "MinLength": "0",
                   "MaxLength": "2048"
@@ -401,7 +306,7 @@
                 "AttributeDataType": "String",
                 "DeveloperOnlyAttribute": false,
                 "Mutable": true,
-                "Required": true,
+                "Required": false,
                 "StringAttributeConstraints": {
                   "MinLength": "0",
                   "MaxLength": "2048"
@@ -419,9 +324,12 @@
               }
             ]
           }
-        },
-        "globallyEditable": false
+        }
       }
+    },
+    "customTemplate": {
+      "dialect": null,
+      "definitions": null
     },
     "envVariables": [
       {
@@ -435,23 +343,25 @@
     ],
     "packageJSON": {
       "dependencies": {
-        "slappforge-sdk-aws": {
-          "name": "slappforge-sdk-aws",
-          "version": "0.0.5",
+        "aws-sdk": {
+          "name": "aws-sdk",
+          "language": "nodejs",
+          "version": "2.176.0",
+          "dev": true,
           "notRemovable": false
         }
       }
-    },
-    "lambdaId": "ef658f6e-fe33-4128-bc2a-205b1d210785"
+    }
   },
   "PROJECT_META": {
-    "projectName": "new",
+    "projectName": "New",
     "projectDescription": "",
     "projectVersion": "1.0.0",
     "projectRegion": "us-east-1",
     "platform": "AWS",
+    "language": "nodejs",
     "platformRegions": {},
-    "lastSave": 1548138569247
+    "lastSave": 1584937583149
   },
   "VCS_STATE": {
     "provider": "GitHub",
