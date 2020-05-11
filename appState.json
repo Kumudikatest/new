@@ -11,8 +11,8 @@
         "isRemovable": true,
         "filePath": "new.py",
         "cursor": {
-          "lineNumber": 25,
-          "column": 23
+          "lineNumber": 1,
+          "column": 1
         },
         "config": {
           "runtime": "python37",
@@ -73,6 +73,17 @@
         "name": "translateResource",
         "type": "Translate",
         "config": {}
+      },
+      "s3cloud9Ktest": {
+        "name": "s3cloud9Ktest",
+        "type": "S3",
+        "config": {
+          "mode": 1,
+          "bucket": {
+            "region": "us-east-1",
+            "name": "cloud9-ktest"
+          }
+        }
       }
     },
     "customTemplate": {
@@ -143,7 +154,7 @@
     "platformRegions": {
       "AWS": "us-east-1"
     },
-    "lastSave": 1589176401050
+    "lastSave": 1589178178452
   },
   "VCS_STATE": {
     "provider": "GitHub",

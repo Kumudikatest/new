@@ -1,4 +1,5 @@
 import boto3
+s3 = boto3.client("s3")
 translate = boto3.client("translate")
 import requests
 
@@ -15,16 +16,14 @@ def handler(request):
         # error handling goes here
         print(e)
         raise(e)
-        
         try:
-            data = translate.translate_text(
-                SourceLanguageCode="auto",
-                TargetLanguageCode="en",
-                Text="Hola"
+            data = s3.list_objects(
+                Bucket="cloud9-ktest",
+                MaxKeys=10
             )
-            print(data)
         except BaseException as e:
             print(e)
             raise(e)
+        
     
     return "Successfully executed"
