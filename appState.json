@@ -11,8 +11,8 @@
         "isRemovable": true,
         "filePath": "new.py",
         "cursor": {
-          "lineNumber": 27,
-          "column": 21
+          "lineNumber": 25,
+          "column": 23
         },
         "config": {
           "runtime": "python37",
@@ -143,7 +143,7 @@
     "platformRegions": {
       "AWS": "us-east-1"
     },
-    "lastSave": 1589175248595
+    "lastSave": 1589176401050
   },
   "VCS_STATE": {
     "provider": "GitHub",

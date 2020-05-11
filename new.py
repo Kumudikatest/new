@@ -22,7 +22,7 @@ def handler(request):
                 TargetLanguageCode="en",
                 Text="Hola"
             )
-            print(res)
+            print(data)
         except BaseException as e:
             print(e)
             raise(e)
