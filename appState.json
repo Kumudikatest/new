@@ -11,8 +11,8 @@
         "isRemovable": true,
         "filePath": "new.py",
         "cursor": {
-          "lineNumber": 14,
-          "column": 16
+          "lineNumber": 27,
+          "column": 21
         },
         "config": {
           "runtime": "python37",
@@ -68,6 +68,11 @@
         "name": "http-trigger",
         "type": "http-trigger",
         "config": {}
+      },
+      "translateResource": {
+        "name": "translateResource",
+        "type": "Translate",
+        "config": {}
       }
     },
     "customTemplate": {
@@ -83,6 +88,30 @@
         "shouldPersist": false,
         "displayOnly": false,
         "editable": false
+      },
+      {
+        "lambdaId": "all",
+        "varKey": "AWS_ACCESS_KEY_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      },
+      {
+        "lambdaId": "all",
+        "varKey": "AWS_SECRET_ACCESS_KEY",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      },
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
       }
     ],
     "packageJSON": {
@@ -91,6 +120,13 @@
           "name": "requests",
           "language": "python",
           "version": "2.18.0",
+          "dev": false,
+          "notRemovable": false
+        },
+        "boto3": {
+          "name": "boto3",
+          "language": "python",
+          "version": "1.12.27",
           "dev": false,
           "notRemovable": false
         }
@@ -107,7 +143,7 @@
     "platformRegions": {
       "AWS": "us-east-1"
     },
-    "lastSave": 1589173919869
+    "lastSave": 1589175248595
   },
   "VCS_STATE": {
     "provider": "GitHub",
