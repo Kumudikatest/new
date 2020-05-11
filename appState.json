@@ -1,340 +1,84 @@
 {
   "EDITOR_STATE": {
     "allProjectFiles": {
-      "1f013c47-4b3f-4a8f-a990-fb62c4591cd0": {
-        "id": "1f013c47-4b3f-4a8f-a990-fb62c4591cd0",
+      "c4776f41-3df5-430b-b72a-2322bc02d526": {
+        "id": "c4776f41-3df5-430b-b72a-2322bc02d526",
         "parent": null,
-        "name": "New.js",
-        "type": "JS_LAMBDA",
+        "name": "new.py",
+        "type": "PYTHON_LAMBDA",
         "isDirectory": false,
         "children": [],
         "isRemovable": true,
-        "filePath": "New.js",
+        "filePath": "new.py",
         "cursor": {
-          "lineNumber": 1,
-          "column": 1
+          "lineNumber": 14,
+          "column": 16
         },
         "config": {
-          "runtime": "nodejs10.x",
-          "handler": "handler",
+          "runtime": "python37",
           "timeout": 60,
           "memory": 128,
-          "layers": []
+          "triggerType": 0,
+          "name": "new",
+          "handler": "handler"
         },
         "triggers": [
           {
-            "resourceName": "apigusEast1TestAPIMyLambdaput",
+            "resourceName": "http-trigger",
             "config": {}
           }
         ],
         "testCases": {
-          "923bce3c-e404-4464-83a4-9a83925f4a17": {
-            "id": "923bce3c-e404-4464-83a4-9a83925f4a17",
+          "f0cccb89-4fb6-40f6-914a-f21285e10057": {
+            "id": "f0cccb89-4fb6-40f6-914a-f21285e10057",
             "name": "Test event",
-            "functionId": "1f013c47-4b3f-4a8f-a990-fb62c4591cd0",
-            "event": "{\r\n    \"key1\": \"value1\",\r\n    \"key2\": \"value2\",\r\n    \"key3\": \"value3\"\r\n}",
+            "functionId": "c4776f41-3df5-430b-b72a-2322bc02d526",
+            "event": "{\"key1\": \"value1\", \"key2\": \"value2\", \"key3\": \"value3\"}",
             "eventTemplate": "hello-world"
           }
         }
+      },
+      "2dd35a47-4b43-40cb-b651-754c67164bab": {
+        "id": "2dd35a47-4b43-40cb-b651-754c67164bab",
+        "parent": null,
+        "name": "index.js",
+        "type": "JS_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": false,
+        "filePath": "index.js"
+      },
+      "32ba6158-c610-4f72-874f-baed5a627fb7": {
+        "id": "32ba6158-c610-4f72-874f-baed5a627fb7",
+        "parent": null,
+        "name": "main.py",
+        "type": "PYTHON_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": false,
+        "filePath": "main.py"
       }
     },
     "openFiles": [
-      "1f013c47-4b3f-4a8f-a990-fb62c4591cd0"
+      "c4776f41-3df5-430b-b72a-2322bc02d526"
     ],
-    "currentFileId": "1f013c47-4b3f-4a8f-a990-fb62c4591cd0",
+    "currentFileId": "c4776f41-3df5-430b-b72a-2322bc02d526",
     "resources": {
-      "apigusEast1TestAPIMyLambdaput": {
-        "name": "apigusEast1TestAPIMyLambdaput",
-        "type": "API_GATEWAY",
-        "config": {
-          "selectedRegion": "us-east-1",
-          "apiMode": 1,
-          "apiName": "TestAPI",
-          "apiId": "0itznun7w3",
-          "endpointType": "EDGE",
-          "rootResourceId": "h2lelj6j7k",
-          "existingResources": {
-            "/MyLambda": "98nqbj",
-            "/testdbput": "bu1jy0",
-            "/": "h2lelj6j7k",
-            "/newchange/test": "k6pdhn",
-            "/newchange": "q1ox7l",
-            "/testWithSlash": "q4m4g1",
-            "/testtwospeciallambda": "q4szm3",
-            "/testtwospecialkumutest": "wey3lk"
-          },
-          "resourceMode": 1,
-          "resourcePath": "/MyLambda",
-          "resourceName": "MyLambda",
-          "resourceId": "98nqbj",
-          "restMethod": "PUT",
-          "proxyIntegration": false,
-          "enableCORS": false,
-          "stageMode": 1,
-          "stageName": "test",
-          "stageDeploymentId": "50alcr",
-          "mode": 1
-        }
-      },
-      "cognitoTestCognito": {
-        "name": "cognitoTestCognito",
-        "type": "CognitoIdentityServiceProvider",
-        "config": {
-          "mode": 1,
-          "name": "Test Cognito",
-          "arn": "arn:aws:cognito-idp:us-east-1:318300609668:userpool/us-east-1_HdYJb7Znp",
-          "userPool": {
-            "Id": "us-east-1_HdYJb7Znp",
-            "Name": "Test Cognito",
-            "LambdaConfig": {},
-            "Policies": {
-              "PasswordPolicy": {
-                "MinimumLength": 8,
-                "RequireUppercase": true,
-                "RequireLowercase": true,
-                "RequireNumbers": true,
-                "RequireSymbols": true
-              }
-            },
-            "VerificationMessageTemplate": {
-              "DefaultEmailOption": "CONFIRM_WITH_CODE"
-            },
-            "MfaConfiguration": "OFF",
-            "EmailConfiguration": {},
-            "SmsConfiguration": {
-              "SnsCallerArn": "arn:aws:iam::318300609668:role/service-role/TestCognito-SMS-Role",
-              "ExternalId": "a5aa9c3d-325f-4d4c-bd3e-06f1485e8375"
-            },
-            "UserPoolTags": {},
-            "AdminCreateUserConfig": {
-              "AllowAdminCreateUserOnly": false,
-              "UnusedAccountValidityDays": 7
-            },
-            "SchemaAttributes": [
-              {
-                "Name": "sub",
-                "AttributeDataType": "String",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": false,
-                "Required": true,
-                "StringAttributeConstraints": {
-                  "MinLength": "1",
-                  "MaxLength": "2048"
-                }
-              },
-              {
-                "Name": "name",
-                "AttributeDataType": "String",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false,
-                "StringAttributeConstraints": {
-                  "MinLength": "0",
-                  "MaxLength": "2048"
-                }
-              },
-              {
-                "Name": "given_name",
-                "AttributeDataType": "String",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false,
-                "StringAttributeConstraints": {
-                  "MinLength": "0",
-                  "MaxLength": "2048"
-                }
-              },
-              {
-                "Name": "family_name",
-                "AttributeDataType": "String",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false,
-                "StringAttributeConstraints": {
-                  "MinLength": "0",
-                  "MaxLength": "2048"
-                }
-              },
-              {
-                "Name": "middle_name",
-                "AttributeDataType": "String",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false,
-                "StringAttributeConstraints": {
-                  "MinLength": "0",
-                  "MaxLength": "2048"
-                }
-              },
-              {
-                "Name": "nickname",
-                "AttributeDataType": "String",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false,
-                "StringAttributeConstraints": {
-                  "MinLength": "0",
-                  "MaxLength": "2048"
-                }
-              },
-              {
-                "Name": "preferred_username",
-                "AttributeDataType": "String",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false,
-                "StringAttributeConstraints": {
-                  "MinLength": "0",
-                  "MaxLength": "2048"
-                }
-              },
-              {
-                "Name": "profile",
-                "AttributeDataType": "String",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false,
-                "StringAttributeConstraints": {
-                  "MinLength": "0",
-                  "MaxLength": "2048"
-                }
-              },
-              {
-                "Name": "picture",
-                "AttributeDataType": "String",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false,
-                "StringAttributeConstraints": {
-                  "MinLength": "0",
-                  "MaxLength": "2048"
-                }
-              },
-              {
-                "Name": "website",
-                "AttributeDataType": "String",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false,
-                "StringAttributeConstraints": {
-                  "MinLength": "0",
-                  "MaxLength": "2048"
-                }
-              },
-              {
-                "Name": "email",
-                "AttributeDataType": "String",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false,
-                "StringAttributeConstraints": {
-                  "MinLength": "0",
-                  "MaxLength": "2048"
-                }
-              },
-              {
-                "Name": "email_verified",
-                "AttributeDataType": "Boolean",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false
-              },
-              {
-                "Name": "gender",
-                "AttributeDataType": "String",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false,
-                "StringAttributeConstraints": {
-                  "MinLength": "0",
-                  "MaxLength": "2048"
-                }
-              },
-              {
-                "Name": "birthdate",
-                "AttributeDataType": "String",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false,
-                "StringAttributeConstraints": {
-                  "MinLength": "10",
-                  "MaxLength": "10"
-                }
-              },
-              {
-                "Name": "zoneinfo",
-                "AttributeDataType": "String",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false,
-                "StringAttributeConstraints": {
-                  "MinLength": "0",
-                  "MaxLength": "2048"
-                }
-              },
-              {
-                "Name": "locale",
-                "AttributeDataType": "String",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false,
-                "StringAttributeConstraints": {
-                  "MinLength": "0",
-                  "MaxLength": "2048"
-                }
-              },
-              {
-                "Name": "phone_number",
-                "AttributeDataType": "String",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false,
-                "StringAttributeConstraints": {
-                  "MinLength": "0",
-                  "MaxLength": "2048"
-                }
-              },
-              {
-                "Name": "phone_number_verified",
-                "AttributeDataType": "Boolean",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false
-              },
-              {
-                "Name": "address",
-                "AttributeDataType": "String",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false,
-                "StringAttributeConstraints": {
-                  "MinLength": "0",
-                  "MaxLength": "2048"
-                }
-              },
-              {
-                "Name": "updated_at",
-                "AttributeDataType": "Number",
-                "DeveloperOnlyAttribute": false,
-                "Mutable": true,
-                "Required": false,
-                "NumberAttributeConstraints": {
-                  "MinValue": "0"
-                }
-              }
-            ]
-          }
-        }
+      "http-trigger": {
+        "name": "http-trigger",
+        "type": "http-trigger",
+        "config": {}
       }
     },
     "customTemplate": {
+      "overrideDefault": false,
       "dialect": null,
       "definitions": null
     },
     "envVariables": [
       {
         "lambdaId": "all",
-        "varKey": "SIGMA_AWS_ACC_ID",
+        "varKey": "AWS_REGION",
         "varValue": null,
         "shouldPersist": false,
         "displayOnly": false,
@@ -343,25 +87,27 @@
     ],
     "packageJSON": {
       "dependencies": {
-        "aws-sdk": {
-          "name": "aws-sdk",
-          "language": "nodejs",
-          "version": "2.176.0",
-          "dev": true,
+        "requests": {
+          "name": "requests",
+          "language": "python",
+          "version": "2.18.0",
+          "dev": false,
           "notRemovable": false
         }
       }
     }
   },
   "PROJECT_META": {
-    "projectName": "New",
+    "projectName": "new",
     "projectDescription": "",
     "projectVersion": "1.0.0",
-    "projectRegion": "us-east-1",
-    "platform": "AWS",
-    "language": "nodejs",
-    "platformRegions": {},
-    "lastSave": 1584937583149
+    "projectRegion": "us-east1",
+    "platform": "GCP",
+    "language": "python",
+    "platformRegions": {
+      "AWS": "us-east-1"
+    },
+    "lastSave": 1589173919869
   },
   "VCS_STATE": {
     "provider": "GitHub",
